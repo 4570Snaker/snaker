@@ -1,0 +1,19 @@
+.ranking-content{
+  font-size:20px;
+  font-family:"Arial";
+  text-align:left;
+  margin:20px;
+}
+
+.ranking-button{
+  text-align:center;
+  margin:20px;
+  padding:20px;
+  border:solid;
+  border-width:1px;
+  border-color:#0054a6;
+  background:#0072bc;
+  color:#ffffff;
+  font-family:"Arial";
+  font-size:30px;
+}

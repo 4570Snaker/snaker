@@ -1,0 +1,72 @@
+#game-timesup{
+  z-index:910;
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background: rgba(0, 0, 0, 0.75);
+  padding-top:50%;
+  text-align: center;
+  font-size: 30px;
+  font-family: Arial;
+  color: #8de8ff;
+  opacity:0;
+  display:none;
+}
+
+#game-ready{
+	text-align: center;
+	margin-top: 300px;
+	font-size: 100px;
+	color: rgba(59, 56, 56, 0.45);
+}
+
+#game-console{
+	
+}
+
+#game-block{
+	
+}
+
+#game-block img{
+	
+	margin: 0;
+	padding: 0;
+	width: 20%;
+}
+
+#game-back{
+  text-align:center;
+  margin:50px;
+  padding:20px;
+  border:solid;
+  border-width:1px;
+  border-color:#0054a6;
+  background:#0072bc;
+  color:#ffffff;
+  font-family:"Arial";
+  font-size:30px;
+}
+
+
+#game-header{
+  z-index:900;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  background:rgba(0, 0, 0, 0.7);
+}
+
+.game-header-title{
+  float:left;
+  width:46%;
+  color:white;
+  font-family:Arial;
+  font-size:18px;
+  margin:2%;
+  text-align:center;
+}
+
+.game-header-data{
+  font-size:50px;
+  margin:2px 0 0 0;
+}

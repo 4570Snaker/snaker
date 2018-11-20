@@ -1,0 +1,12 @@
+.title-button{
+  text-align:center;
+  margin:20px;
+  padding:20px;
+  border:solid;
+  border-width:1px;
+  border-color:#0054a6;
+  background:#0072bc;
+  color:#ffffff;
+  font-family:"Arial";
+  font-size:30px;
+}
