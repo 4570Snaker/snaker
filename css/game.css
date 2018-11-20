@@ -22,28 +22,26 @@
 	
 }
 
-#game-block{
-	
+#game-block div{
+	width: 20%;
+	display: inline-block;
 }
-
 #game-block img{
-	
 	margin: 0;
 	padding: 0;
-	width: 20%;
+	width: 100%;
 }
-
 #game-back{
-  text-align:center;
-  margin:50px;
-  padding:20px;
-  border:solid;
-  border-width:1px;
-  border-color:#0054a6;
-  background:#0072bc;
-  color:#ffffff;
-  font-family:"Arial";
-  font-size:30px;
+	text-align:center;
+	margin:50px;
+	padding:20px;
+	border:solid;
+	border-width:1px;
+	border-color:#0054a6;
+	background:#0072bc;
+	color:#ffffff;
+	font-family:"Arial";
+	font-size:30px;
 }
 
 

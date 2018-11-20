@@ -45,3 +45,6 @@ body {
   height:100%;
 }
 
+#level{
+	display: none;
+}

@@ -9,9 +9,13 @@ var game = {
 	showNextBlock: function() {
 		var i = 1;
 		while (i <= 5){
-			$("#game-block").append("<img id='block"+i+"'src='img/blocks/block.png' />");
+			$("#game-block").append("<div id='blcok_"+i+"'><img src='img/blocks/block.png'/><div class='centeredText'>"+game.randomNumber()+"</div></div>");
 			i++;
 		}
+	},
+	
+	randomNumber: function() {
+		
 	},
 	
 	ready: function(){
