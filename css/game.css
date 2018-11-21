@@ -23,6 +23,8 @@
 }
 
 #game-block {
+	position: relative;
+	display: none;
 }
 
 #game-block div{
@@ -37,6 +39,17 @@
 	margin: 0;
 	padding: 0;
 	width: 100%;
+}
+#game-smileFace{
+	display: none;
+	z-index: 200;
+	bottom: 0;
+	margin-bottom: 30%;
+	margin-left: 42.5vw;
+	position: fixed;
+}
+#game-smileFace img{
+	width: 15vw;
 }
 #game-back{
 	text-align:center;

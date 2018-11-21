@@ -15,9 +15,14 @@ var game = {
 		}, 1000);
 */
 		$("#game-ready").hide();
-		$("#game-console").show().animate({opacity: 1}, 1000);
+		$("#game-block").show().animate({opacity: 1}, 1000);
+		game.smilingFace();
+		game.setupHandler();
+/*
+		
 		game.showNextBlock();
 		game.movingBlock();
+*/
 /*
 		setTimeout(function(){
 			game.showNextBlock();
@@ -25,6 +30,35 @@ var game = {
 		}, 3000);
 */
 	
+	},
+	
+	setupHandler: function() {
+		$("#game-smileFace").on("touchstart", function(e){
+			e.preventDefault();
+			$(this).css({"z-index":300});
+// 			$(this).attr("top", $(this).position().top);
+			$(this).attr("left", $(this).position().left);
+			
+			var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0]; 
+			$(this).attr("pageX", touch.pageX);
+// 			$(this).attr("pageY", touch.pageY);
+		});
+		
+	    $("#game-smileFace").on("touchmove", function(e){
+		    e.preventDefault();
+			var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
+			var offSetPageX = touch.pageX - parseFloat($(this).attr("pageX"));
+			var left = parseFloat($(this).attr("left")) + offSetPageX;
+// 			console.log(offSetPageX);
+		    if (left >= -160 && left <= 160){
+				$(this).css({"left":left+"px"});
+		    }
+		});
+	},
+	
+	smilingFace: function() {
+		$("#game-smileFace").append("<img src='img/smileFace.png'>");
+		$("#game-smileFace").show();
 	},
 	
 	movingBlock: function() {
