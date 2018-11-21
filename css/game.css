@@ -19,12 +19,19 @@
 }
 
 #game-console{
-	
+	display: none;
+}
+
+#game-block {
 }
 
 #game-block div{
 	width: 20%;
 	display: inline-block;
+	padding-top: 7.5%;
+	padding-bottom: 7.5%;
+	text-align: center;
+	color: white;
 }
 #game-block img{
 	margin: 0;
@@ -43,8 +50,6 @@
 	font-family:"Arial";
 	font-size:30px;
 }
-
-
 #game-header{
   z-index:900;
   position:absolute;

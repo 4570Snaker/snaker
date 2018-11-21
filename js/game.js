@@ -1,5 +1,14 @@
 var game = {
+	block: [
+		{"color": "black"},
+		{"color": "blue"},
+		{"color": "grey"},
+		{"color": "red"},
+		{"color": "green"}
+	],
+	
 	init: function(){
+		//set 3 second to start game
 		setTimeout(function(){
 			game.ready();
 		}, 1000);
@@ -7,15 +16,28 @@ var game = {
 	},
 	
 	showNextBlock: function() {
-		var i = 1;
-		while (i <= 5){
-			$("#game-block").append("<div id='blcok_"+i+"'><img src='img/blocks/block.png'/><div class='centeredText'>"+game.randomNumber()+"</div></div>");
+		game.shuffleColor();
+		var i = 0;
+		while (i < 5){
+			$("#game-block").append("<div id='blcok_"+i+"'>"+game.block[i].color+"</div>");
+			$('#blcok_'+i).css('background', game.block[i].color);
 			i++;
 		}
 	},
 	
-	randomNumber: function() {
-		
+	randomColor: function() {
+		console.log(game.block[Math.round(Math.random()*4)].color);
+	},
+	
+	shuffleColor: function() {
+		var currentIndex = game.block.length, temporaryValue, randomIndex;
+		while (0 !== currentIndex) {
+			randomIndex = Math.floor(Math.random() * currentIndex);
+			currentIndex -= 1;			
+			temporaryValue = game.block[currentIndex];
+			game.block[currentIndex] = game.block[randomIndex];
+			game.block[randomIndex] = temporaryValue;
+		}
 	},
 	
 	ready: function(){
