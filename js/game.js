@@ -9,10 +9,38 @@ var game = {
 	
 	init: function(){
 		//set 3 second to start game
+/*
 		setTimeout(function(){
 			game.ready();
 		}, 1000);
+*/
+		$("#game-ready").hide();
+		$("#game-console").show().animate({opacity: 1}, 1000);
 		game.showNextBlock();
+		game.movingBlock();
+/*
+		setTimeout(function(){
+			game.showNextBlock();
+			game.movingBlock();
+		}, 3000);
+*/
+	
+	},
+	
+	movingBlock: function() {
+		var timecount = $("#game-time").html();
+		var position = parseInt($("#game-block").css("margin-top"));
+		position+=2;
+		console.log($("#game-block").offset().top , $("#index-content").outerHeight(true));
+		if ($("#game-block").offset().top < $("#index-content").outerHeight()){
+			setTimeout(function(){
+				$("#game-block").css('margin-top', position);
+				game.movingBlock();
+			}, 5);
+		}else{
+			$("#game-block").css('margin-top', 0);
+			game.movingBlock();
+		}
 	},
 	
 	showNextBlock: function() {
