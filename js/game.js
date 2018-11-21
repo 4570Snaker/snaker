@@ -99,7 +99,7 @@ var game = {
 			setTimeout(function(){
 				$("#game-block").css('top', position+=3);
 				game.movingBlock();
-			}, 20);
+			}, 5);
 		}else{
 			game.destroyBlock();
 // 			game.resetBlock();
@@ -115,20 +115,21 @@ var game = {
 	
 	moveNonDestroyBlock: function() {
 		var position = parseInt($("#game-block").css("top"));
-		console.log(position, $("#index-content").height());
+// 		console.log(position, $("#index-content").height());
 		if (position <= $("#index-content").height()){
 			setTimeout(function(){
 				$("#game-block").css('top', position+=3);
 				game.movingBlock();
-			}, 20);
+			}, 5);
+		}else{
+			$("#game-block").empty();
+			game.showNextBlock();
+			game.movingBlock();
 		}
 	},
 	
-	resetBlock: function() {
-		$("#game-block").css('top', 0);
-	},
-	
 	showNextBlock: function() {
+		$("#game-block").css("top", 0);
 		game.shuffleColor();
 		var i = 0;
 		while (i < 5){
