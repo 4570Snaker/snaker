@@ -1,11 +1,19 @@
 .ranking-content{
-  font-size:20px;
-  font-family:"Arial";
+  position:absolute;
+  left:40%;
+  top:30%;
+  font-size:30px;
+  font-family:"Century Gothic";
   text-align:left;
   margin:20px;
+  color:#012d56;
+  blackground-color:#561e01;
 }
 
 .ranking-button{
+  position:absoulte;
+  left:60%;
+  top:95%;
   text-align:center;
   margin:20px;
   padding:20px;
