@@ -1,6 +1,6 @@
 <?php
 // Create connection
-$con = new mysqli("www-std.se.cuhk.edu.hk", "s4570_06","Mx629q198", "s4570_06");
+$con = new mysqli("server_name", "username","password";
 
 // Check connection
 if ($con->connect_error){
