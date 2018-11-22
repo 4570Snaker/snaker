@@ -1,4 +1,4 @@
-var game = {
+var game = {	
 	block: [
 		{"color": "black"},
 		{"color": "blue"},
@@ -35,9 +35,8 @@ var game = {
 		$("#game-smileFace").on("touchstart", function(e){
 			e.preventDefault();
 			$(this).css({"z-index":300});
-// 			$(this).attr("top", $(this).position().top);
 			$(this).attr("left", $(this).position().left);
-			
+
 			var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0]; 
 			$(this).attr("pageX", touch.pageX);
 			game.movingBlock();
@@ -49,9 +48,9 @@ var game = {
 			var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
 			var offSetPageX = touch.pageX - parseFloat($(this).attr("pageX"));
 			var left = parseFloat($(this).attr("left")) + offSetPageX;
-// 			console.log(offSetPageX);
-// 			game.blockTouched($(this), left);
-		    if (left >= -160 && left <= 160){
+			var width = game.return_css_width($(this));
+			console.log(width);
+		    if (left >= 0 && left+width <= game.return_css_width($("#index-content"))){
 				$(this).css({"left":left+"px"});
 				
 		    }
@@ -72,43 +71,64 @@ var game = {
 	    }
 	},
 	
-	blockTouched: function(smileFace, left) {
-	    var width = smileFace.width();
-	    var pos = left+width/2;
-// 	    console.log(left, pos);
-	    if (pos <= -85)
+	isPassable: function(block_touch, smileFace) {
+		var left = block_touch.position().left;
+		var width = game.return_css_width(block_touch);
+		console.log(left, width);
+		return false;
+	},
+	
+	isPassThrough: function(smileFace, pos_incre) {
+		var top = smileFace.position().top;
+		var height = smileFace.height();
+		var block_top = $("#game-block").position().top;
+		var block_height = $("#game-block").height();
+		var block_bottom = block_top+block_height;
+// 		console.log(top, height, block_top, block_height, block_bottom);
+		if (top+height < block_top)
+			return true;
+		else
+			return false;
+	},
+	
+	blockTouched: function(pos) {
+		screen_width = game.return_css_width($("#index-content"));
+	    if (pos <= screen_width/5)
 	    	return $("#block_0");
-	    else if (pos > -85 && pos <= -10)
+	    else if (pos > screen_width/5 && pos <= screen_width/5*2)
 	    	return $("#block_1");
-		else if (pos > -10 && pos <= 65)
+		else if (pos > screen_width/5*2 && pos <= screen_width/5*3)
 	    	return $("#block_2");
-		else if (pos > 65 && pos <= 140)
+		else if (pos > screen_width/5*3 && pos <= screen_width/5*4)
 	    	return $("#block_3");
-		else if (pos > 140)
+		else if (pos > screen_width/5*4)
 	    	return $("#block_4");
 	},
 	
-	smilingFace: function() {
-		$("#game-smileFace").append("<img src='img/smileFace.png'>");
-		$("#game-smileFace").show();
-	},
-	
 	movingBlock: function() {
-		var position = parseInt($("#game-block").css("top"));		
-		if (!game.isSmileTouchBlock($("#game-smileFace"))){
+		var position = parseInt($("#game-block").css("top"));
+		var smileFace = $("#game-smileFace");	
+		if (!game.isSmileTouchBlock(smileFace)){
 			setTimeout(function(){
-				$("#game-block").css('top', position+=3);
+				$("#game-block").css('top', position+=2);
 				game.movingBlock();
 			}, 5);
 		}else{
-			game.destroyBlock();
+			var blockTouched = game.blockTouched((smileFace.position().left + game.return_css_width(smileFace))/2);
+			game.destroyBlock(blockTouched);
+			//range
+			if (game.isPassable(blockTouched, smileFace)){
+				console.log("y");
+			}else{
+				console.log("n");				
+			}
+			console.log(game.isPassThrough(smileFace, 2));
 // 			game.resetBlock();
-			game.moveNonDestroyBlock();
+// 			game.moveNonDestroyBlock();
 		}
 	},
 	
-	destroyBlock: function() {
-		var block_touch = game.blockTouched($("#game-smileFace"), parseFloat($("#game-smileFace").css("left").replace("px", "")));
+	destroyBlock: function(block_touch) {
 // 		console.log(block_touch);
 		block_touch.css("background", "white").animate({opacity: 1}, 500);
 	},
@@ -118,7 +138,7 @@ var game = {
 // 		console.log(position, $("#index-content").height());
 		if (position <= $("#index-content").height()){
 			setTimeout(function(){
-				$("#game-block").css('top', position+=3);
+				$("#game-block").css('top', position+=2);
 				game.movingBlock();
 			}, 5);
 		}else{
@@ -137,6 +157,11 @@ var game = {
 			$('#block_'+i).css('background', game.block[i].color);
 			i++;
 		}
+	},
+	
+	smilingFace: function() {
+		$("#game-smileFace").append("<img src='img/smileFace.png'>");
+		$("#game-smileFace").show();
 	},
 	
 	randomColor: function() {
@@ -166,6 +191,10 @@ var game = {
 			$("#game-ready").hide();
 			$("#game-console").show().animate({opacity: 1}, 1000);
 		}
+	},
+	
+	return_css_width: function(obj){
+		return parseFloat(obj.css("width").replace("px", ""));
 	}
 }
 
