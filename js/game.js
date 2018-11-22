@@ -1,4 +1,4 @@
-var game = {
+var game = {	
 	block_destroy: false,
 		
 	block: [
@@ -17,10 +17,8 @@ var game = {
 		}, 1000);
 */
 		$("#game-ready").hide();
-		$("#game-block").show().animate({opacity: 1}, 1000);
-		
+		$("#game-gen-block div").show().animate({opacity: 1}, 1000);
 		game.showNextBlock();
-// 		$("#game-block").css('top', 493);
 		game.smilingFace();
 		game.setupHandler();
 
@@ -52,21 +50,25 @@ var game = {
 			var left = parseFloat($(this).attr("left")) + offSetPageX;
 			var width = game.return_css_width($(this));
 			
-		    if (left >= 0 && left+width <= game.return_css_width($("#index-content"))){
+			if (left >= 0 && left+width <= game.return_css_width($("#index-content")))
 				$(this).css({"left":left+"px"});
-				
-		    }
+			
+		});
+		
+		$("#game-smileFace").on("touchend", function(e){
+			e.preventDefault();
+			
+			$("game-gen-block").hide().animate({opacity: 0}, 1000);
+			$("game-gen-block").hide().animate({opacity: 0}, 1000);
+			$("game-break").show().animate({opacity:1}, 1000);
 		});
 	},
 	
 	isSmileTouchBlock: function(smileFace) {
 		var top = smileFace.position().top;
-
-// 	    console.log(top, left, width);
 	    var block_bottom = $("#game-block").position().top+$("#game-block").height();
 // 	    console.log(top, block_bottom);
-	    
-	    if (top > block_bottom){
+	    if (top >= block_bottom){
 		    return false;
 	    }else{
 		    return true;
@@ -78,19 +80,6 @@ var game = {
 		var width = game.return_css_width(block_touch);
 		
 		if (smileFace.position().left >= left && smileFace.position().left+game.return_css_width(smileFace) <= left+width)
-			return true;
-		else
-			return false;
-	},
-	
-	isPassThrough: function(smileFace, pos_incre) {
-		var top = smileFace.position().top;
-		var height = smileFace.height();
-		var block_top = $("#game-block").position().top;
-		var block_height = $("#game-block").height();
-		var block_bottom = block_top+block_height;
-// 		console.log(top, height, block_top, block_height, block_bottom);
-		if (top+height < block_top)
 			return true;
 		else
 			return false;
@@ -111,52 +100,55 @@ var game = {
 	},
 	
 	movingBlock: function() {
-		var position = parseInt($("#game-block").css("top"));
-		var smileFace = $("#game-smileFace");	
-		if (!game.isSmileTouchBlock(smileFace)){
-			setTimeout(function(){
-				$("#game-block").css('top', position+=2);
+		var smileFace = $("#game-smileFace");
+		var blocks = $("#game-block");
+		var position = parseInt(blocks.css("top"));
+		if (position+blocks.height() <= smileFace.position().top){
+			blocks.animate({top: position+=50}, 200, "linear");
+			setTimeout(function() {
 				game.movingBlock();
-			}, 5);
+			}, 200);
 		}else{
 			var blockTouched = game.blockTouched(smileFace.position().left + game.return_css_width(smileFace)/2);
 			game.destroyBlock(blockTouched);
-			
-			//range
-			if (game.isPassable(blockTouched, smileFace)){
-				console.log("y");
-				game.moveNonDestroyBlock();
-			}else{
-				console.log("n");
-			}
-			console.log(game.isPassThrough(smileFace, 2));
+			if (!game.isPassable(blockTouched, smileFace))
+				setTimeout(function() {
+					game.movingBlock();
+				}, 10);
+			blocks.attr('id', 'game-block');
+			game.moveNonDestroyBlock();		
 		}
 	},
 	
 	destroyBlock: function(block_touch) {
 		if (!game.block_destroy){
-			block_touch.css("background", "white").animate({opacity: 1}, 500);
+			block_touch.fadeOut(1000, function() {
+				block_touch.fadeIn();
+				block_touch.css("background", "white");
+			});
 			game.block_destroy = true;
 		}
 	},
 	
 	moveNonDestroyBlock: function() {
-		var position = parseInt($("#game-block").css("top"));
-// 		console.log(position, $("#index-content").height());
+		var blocks = $("#game-block");
+		var position = parseInt((blocks).css("top"));
 		if (position <= $("#index-content").height()){
-			setTimeout(function(){
-				$("#game-block").css('top', position+=2);
-				game.movingBlock();
-			}, 5);
+			blocks.animate({top: position+=50, avoidTransforms:true}, 200, "linear");
+			setTimeout(function() {
+				game.moveNonDestroyBlock();
+			}, 200);
 		}else{
-			$("#game-block").empty();
+			blocks.remove();
 			game.showNextBlock();
-			game.movingBlock();
+			game.movingBlock();	
 		}
 	},
 	
 	showNextBlock: function() {
+		$("#game-gen-block").prepend("<div id='game-block'></div>");
 		$("#game-block").css("top", 0);
+		game.block_destroy = false;
 		game.shuffleColor();
 		var i = 0;
 		while (i < 5){

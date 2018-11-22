@@ -14,9 +14,9 @@ var title = {
 					type: "get",
 					url: "game.html",
 					success: function(data){
-				    	$("#index-content").html(data);
-				    	$("#level").html(level);
-						$("#index-loading").animate({opacity:0}, 300, function(){
+					    	$("#index-content").html(data);
+					    	$("#level").html(level);
+							$("#index-loading").animate({opacity:0}, 300, function(){
 							$("#index-loading").hide();
 				    	});
 					},
