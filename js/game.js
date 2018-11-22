@@ -1,4 +1,6 @@
-var game = {	
+var game = {
+	block_destroy: false,
+		
 	block: [
 		{"color": "black"},
 		{"color": "blue"},
@@ -49,7 +51,7 @@ var game = {
 			var offSetPageX = touch.pageX - parseFloat($(this).attr("pageX"));
 			var left = parseFloat($(this).attr("left")) + offSetPageX;
 			var width = game.return_css_width($(this));
-			console.log(width);
+			
 		    if (left >= 0 && left+width <= game.return_css_width($("#index-content"))){
 				$(this).css({"left":left+"px"});
 				
@@ -74,8 +76,11 @@ var game = {
 	isPassable: function(block_touch, smileFace) {
 		var left = block_touch.position().left;
 		var width = game.return_css_width(block_touch);
-		console.log(left, width);
-		return false;
+		
+		if (smileFace.position().left >= left && smileFace.position().left+game.return_css_width(smileFace) <= left+width)
+			return true;
+		else
+			return false;
 	},
 	
 	isPassThrough: function(smileFace, pos_incre) {
@@ -114,23 +119,25 @@ var game = {
 				game.movingBlock();
 			}, 5);
 		}else{
-			var blockTouched = game.blockTouched((smileFace.position().left + game.return_css_width(smileFace))/2);
+			var blockTouched = game.blockTouched(smileFace.position().left + game.return_css_width(smileFace)/2);
 			game.destroyBlock(blockTouched);
+			
 			//range
 			if (game.isPassable(blockTouched, smileFace)){
 				console.log("y");
+				game.moveNonDestroyBlock();
 			}else{
-				console.log("n");				
+				console.log("n");
 			}
 			console.log(game.isPassThrough(smileFace, 2));
-// 			game.resetBlock();
-// 			game.moveNonDestroyBlock();
 		}
 	},
 	
 	destroyBlock: function(block_touch) {
-// 		console.log(block_touch);
-		block_touch.css("background", "white").animate({opacity: 1}, 500);
+		if (!game.block_destroy){
+			block_touch.css("background", "white").animate({opacity: 1}, 500);
+			game.block_destroy = true;
+		}
 	},
 	
 	moveNonDestroyBlock: function() {
