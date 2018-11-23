@@ -19,10 +19,9 @@ var game = {
 	
 	init: function(){
 		//set 3 second to start game
-		game.smilingFace();
-
 		setTimeout(function(){
 			game.ready();
+			game.initSmilingFace();
 		}, 1000);
 /*
 		$("#game-ready").hide();
@@ -35,7 +34,7 @@ var game = {
 					game.movingBlock();
 					game.setupHandler();
 					game.runTimer();
-				}, 3000);
+				}, 3100);
 			case 2:
 			case 3:
 			default:
@@ -169,6 +168,7 @@ var game = {
 					}, 20);
 				}
 			}else{
+				$("#game-block").remove();
 				game.showNextBlock();
 				game.movingBlock();
 			}
@@ -214,16 +214,22 @@ var game = {
 			$('#block_'+i).css('background', game.block[i].color);
 			i++;
 		}
+		var randColor = game.randomColor();
+		game.randSmilingFace(randColor);
 		$("#game-block").show();
 	},
 	
-	smilingFace: function() {
+	randSmilingFace: function(randColor) {
+		$("#game-smileFace img").attr("src", "img/smile"+randColor+".png");
+	},
+	
+	initSmilingFace: function() {
 		$("#game-smileFace").append("<img src='img/smileFace.png'>");
 		$("#game-smileFace").show();
 	},
 	
 	randomColor: function() {
-		console.log(game.block[Math.round(Math.random()*4)].color);
+		return game.block[Math.round(Math.random()*4)].color;
 	},
 	
 	shuffleColor: function() {
