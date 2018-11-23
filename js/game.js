@@ -1,9 +1,11 @@
 var game = {		
 	block_Touched: null,
 	
+	block_destroy: false,
+	
 	passingState: false,
 	
-	block_destroy: false,
+	position_check: 0,
 		
 	block: [
 		{"color": "black"},
@@ -15,23 +17,22 @@ var game = {
 	
 	init: function(){
 		//set 3 second to start game
-/*
+		game.smilingFace();
+
 		setTimeout(function(){
 			game.ready();
 		}, 1000);
-*/
+/*
 		$("#game-ready").hide();
 		$("#game-gen-block div").show().animate({opacity: 1}, 1000);
-		game.showNextBlock();
-		game.smilingFace();
-		game.setupHandler();
-
-/*
+*/
+		
 		setTimeout(function(){
 			game.showNextBlock();
 			game.movingBlock();
+			game.setupHandler();
+			game.runTimer();
 		}, 3000);
-*/
 	
 	},
 	
@@ -43,7 +44,6 @@ var game = {
 
 			var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0]; 
 			$(this).attr("pageX", touch.pageX);
-			game.movingBlock();
 		});
 		
 	    $("#game-smileFace").on("touchmove", function(e){
@@ -54,8 +54,7 @@ var game = {
 			var left = parseFloat($(this).attr("left")) + offSetPageX;
 			var width = game.return_css_width($(this));
 			
-			if (passingstate){
-				console.log(game.block_Touched);
+			if (game.passingState){
 				var b_left = game.block_Touched.position().left;
 				var b_width = game.block_Touched.width();
 				if (left >= game.block_Touched.position().left && left+width <= b_left+b_width)
@@ -66,15 +65,6 @@ var game = {
 			}	
 		});
 		
-/*
-		$("#game-smileFace").on("touchend", function(e){
-			e.preventDefault();
-			
-			$("game-gen-block").hide().animate({opacity: 0}, 1000);
-			$("game-gen-block").hide().animate({opacity: 0}, 1000);
-			$("game-break").show().animate({opacity:1}, 1000);
-		});
-*/
 	},
 	
 	isSmileTouchBlock: function(smileFace) {
@@ -98,15 +88,18 @@ var game = {
 			return false;
 	},
 	
-	isPassing: function(block_touch, smileFace) {
-		var top = block_touch.position().top;
-		var height = block.height();
-		
-		if (smileFace.position().top <= top+height && smileFace.position().top + smileFace.height() < top+height)
-			game.passState = true;
+	isPassing: function(blocks, smileFace) {
+		var top = blocks.position().top;
+		var height = blocks.height();
+		if (top+height >= smileFace.position().top){
+			if (top > smileFace.position().top + smileFace.height())
+				game.passingState = false;
+			else
+				game.passingState = true;
+		}
 		else
-			game.passState = false;
-	}
+			game.passingState = false;
+	},
 	
 	blockTouched: function(pos) {
 		screen_width = game.return_css_width($("#index-content"));
@@ -132,44 +125,49 @@ var game = {
 			blocks.css("top", position+=5);
 			setTimeout(function() {
 				game.movingBlock();
-			}, 10);
+			}, 20);
+			game.position_check = position;
 		}else{
-			game.block_Touched = game.blockTouched(smileFace.position().left + game.return_css_width(smileFace)/2);
-			game.destroyBlock(game.block_Touched);
-			
+			game.destroyBlock(smileFace);
 			blocks.attr('id', 'game-block');
 			var blocks_des = $("#game-block");
 			var position_des = parseInt(blocks_des.css("top"));
+			game.isPassing(blocks_des, smileFace);
 			if (position_des <= game.return_css_height($("#index-content"))){
-				if (!game.isPassable(game.block_Touched, smileFace)){
+// 				console.log(position_des);
+				if (!game.isPassable(game.block_Touched, smileFace) && position_des == game.position_check){
 					setTimeout(function() {
 						game.movingBlock();
-					}, 10);
-					console.log("N");
+					}, 20);
 				}else{
-					console.log("Y");
 					blocks.css("top", position_des+=5);
 					setTimeout(function() {
 						game.movingBlock();
-					}, 10);
+					}, 20);
 				}
+			}else{
+				game.showNextBlock();
+				game.movingBlock();
 			}
 		}
 	},
 	
-	destroyBlock: function(block_touch) {
+	destroyBlock: function(smileFace) {
 		if (!game.block_destroy){
-			block_touch.fadeOut(1000, function() {
-				block_touch.fadeIn();
-				block_touch.css("background", "white");
+			game.block_Touched = game.blockTouched(smileFace.position().left + game.return_css_width(smileFace)/2);
+			game.block_Touched.fadeOut(1000, function() {
+				game.block_Touched.fadeIn();
+				game.block_Touched.css("background", "white");
 			});
+			
 			game.block_destroy = true;
+
 		}
 	},
 	
 	moveNonDestroyBlock: function() {
 		var blocks = $("#game-block");
-		var position = parseInt((blocks).css("top"));
+		var position = blocks.position().top;
 		if (position <= $("#index-content").height()){
 			blocks.animate({top: position+=50, avoidTransforms:true}, 200, "linear");
 			setTimeout(function() {
@@ -193,6 +191,7 @@ var game = {
 			$('#block_'+i).css('background', game.block[i].color);
 			i++;
 		}
+		$("#game-block").show();
 	},
 	
 	smilingFace: function() {
@@ -227,6 +226,15 @@ var game = {
 			$("#game-ready").hide();
 			$("#game-console").show().animate({opacity: 1}, 1000);
 		}
+	},
+	
+	runTimer: function() {
+		var currentTime = $("#game-time").html();
+		currentTime++;
+		$("#game-time").html(currentTime);
+		setTimeout(function(){
+	        game.runTimer();
+	    }, 1000);
 	},
 	
 	return_css_width: function(obj){
