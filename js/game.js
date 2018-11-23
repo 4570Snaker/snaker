@@ -6,6 +6,8 @@ var game = {
 	passingState: false,
 	
 	position_check: 0,
+	
+	level: parseInt($("#index-level").text()),
 		
 	block: [
 		{"color": "black"},
@@ -26,13 +28,34 @@ var game = {
 		$("#game-ready").hide();
 		$("#game-gen-block div").show().animate({opacity: 1}, 1000);
 */
+		switch(game.level) {
+			case 1:
+				setTimeout(function(){
+					game.showNextBlock();
+					game.movingBlock();
+					game.setupHandler();
+					game.runTimer();
+				}, 3000);
+			case 2:
+			case 3:
+			default:
+/*
+				$.ajax({
+			      type: "get",
+			      url: "title.html",
+			      success: function(data){
+			        $("#index-content").html(data);
+			        $("#index-loading").animate({opacity:0}, 300, function(){
+			          $("#index-loading").hide();
+			        });
+			      },
+			      error: function(){
+			        console.log("Error when loading title.html");
+			      }
+			    });
+*/ 
+		}
 		
-		setTimeout(function(){
-			game.showNextBlock();
-			game.movingBlock();
-			game.setupHandler();
-			game.runTimer();
-		}, 3000);
 	
 	},
 	
