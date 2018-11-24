@@ -10,16 +10,17 @@
     border-radius: 25px;
     text-align:center;
     padding-top: 25px;
-    width: 25%;
-    height: 10%;
-    margin:30px 500px 30px ;
+    width: 40%;
+    height: 5%;
+    margin:50px 300px;
     border:solid;
     border-width:1px;
     border-color:#00cccc;
     background:#00cccc;
     color:#ffffff;
-    font-family:"Akronim";
+    font-family:"Arial";
     font-size:30px;
+    
 }
 #title-level_chooser{
 	overflow: auto;
