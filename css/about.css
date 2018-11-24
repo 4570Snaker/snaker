@@ -2,13 +2,23 @@
     background:#0d0d0d;
 }
 
-.about-header{
-    
+.about-header{  
     font-family:"Akronim";
     text-align:center;
     margin:20px;
     color: #ffffff;
     border-bottom: 4px solid white;
+<<<<<<< HEAD
+<<<<<<< HEAD
+}
+
+.about-content{
+  font-size:20px;
+  font-family:"Arial";
+  text-align:left;
+  margin:20px;
+  color: #ffffff;
+=======
     
 }
 
@@ -52,19 +62,65 @@
   font-size:25px;
   font-family:"Arial";
   text-align:left;
+=======
+    
+}
+
+.about-aboutus img{
+    position:absolute;
+    top:50px;
+    right:375px;
+    margin-left:60px;
+    margin-bottom:100px;
+    width:25%;
+    height:5%;
+    margin:auto;
+
+}
+.about-gamerules img{
+    position:absolute;
+    top:480px;
+    right:345px;
+    margin-left:60px;
+    margin-bottom:100px;
+    width:30%;
+    height:5%;
+    margin:auto;
+    
+}
+
+.about-teammember img{
+    position:absolute;
+    top:1130px;
+    right:300px;
+    margin-left:60px;
+    margin-bottom:100px;
+    width:40%;
+    height:4.5%;
+    margin:auto;
+    
+}
+
+.about-content{
+
+  font-size:25px;
+  font-family:"Arial";
+  text-align:left;
+>>>>>>> 149e9ab6bc5f01a06b596f4b3a00498430e46530
   margin-left:20px;
   margin-top:100px;
   color:#ffffff;
   
+>>>>>>> 149e9ab6bc5f01a06b596f4b3a00498430e46530
 }
 
 .about-button{
   border-radius: 25px;
   text-align:center;
   padding-top: 15px;
-  width: 500px;
-  height: 50px;
-  margin:250px  ;
+  width: 100%;
+  height: 5%;
+  margin: 0 25px;
   border:solid;
   border-width:1px;
   border-color:#00cccc;
@@ -72,5 +128,5 @@
   color:#ffffff;
   font-family:"Arial";
   font-size:30px;
-  box-shadow:0
+  box-shadow:0;
 }
