@@ -12,9 +12,9 @@
     
 }
 
-.about-picture img{
+.about-aboutus img{
     position:absolute;
-    top:0px;
+    top:50px;
     right:375px;
     margin-left:60px;
     margin-bottom:100px;
@@ -22,6 +22,29 @@
     height:5%;
     margin:auto;
 
+}
+.about-gamerules img{
+    position:absolute;
+    top:480px;
+    right:345px;
+    margin-left:60px;
+    margin-bottom:100px;
+    width:30%;
+    height:5%;
+    margin:auto;
+    
+}
+
+.about-teammember img{
+    position:absolute;
+    top:1130px;
+    right:300px;
+    margin-left:60px;
+    margin-bottom:100px;
+    width:40%;
+    height:4.5%;
+    margin:auto;
+    
 }
 
 .about-content{
