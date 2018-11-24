@@ -1,17 +1,25 @@
 ::-webkit-scrollbar { 
     display: none; 
 }
+
+.title-page{
+    background:#0d0d0d; /*#262626;*/
+}
+
 .title-button{
-  text-align:center;
-  margin:20px;
-  padding:20px;
-  border:solid;
-  border-width:1px;
-  border-color:#0054a6;
-  background:#0072bc;
-  color:#ffffff;	
-  font-family:"Arial";
-  font-size:30px;
+    border-radius: 25px;
+    text-align:center;
+    padding-top: 25px;
+    width: 25%;
+    height: 10%;
+    margin:30px 500px 30px ;
+    border:solid;
+    border-width:1px;
+    border-color:#00cccc;
+    background:#00cccc;
+    color:#ffffff;
+    font-family:"Akronim";
+    font-size:30px;
 }
 #title-level_chooser{
 	overflow: auto;
