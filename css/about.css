@@ -1,19 +1,45 @@
+.about-page{
+    background:#0d0d0d; /*#262626;*/
+}
+
+.about-header{
+    
+    font-family:"Akronim";
+    text-align:center;
+    margin:20px;
+    color: #ffffff;
+    border-bottom: 4px solid white;
+    
+    
+}
+
 .about-content{
+
   font-size:20px;
   font-family:"Arial";
   text-align:left;
   margin:20px;
+  color: #ffffff;
+  
 }
 
 .about-button{
+  border-radius: 25px;
   text-align:center;
-  margin:20px;
-  padding:20px;
+  padding-top: 15px;
+  width: 500px;
+  height: 50px;
+  margin:30px 430px 30px ;
+  
+  /*
+   padding:20px;
+    margin:20px;*/
   border:solid;
   border-width:1px;
-  border-color:#0054a6;
-  background:#0072bc;
+  border-color:#00cccc;
+  background:#00cccc;
   color:#ffffff;
   font-family:"Arial";
   font-size:30px;
+  box-shadow:0
 }
