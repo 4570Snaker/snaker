@@ -39,36 +39,13 @@ var game = {
 		setTimeout(function(){
 			game.ready();
 			game.initSmilingFace();
-		}, 1000);
-/*
-		$("#game-ready").hide();
-		$("#game-gen-block div").show().animate({opacity: 1}, 1000);
-*/
-		switch(game.level) {
-			case 1:
-				setTimeout(function(){
-					game.showNextBlock();
-					game.movingBlock();
-					game.setupHandler();
-					game.runTimer();
-				}, 3100);
-			default: 
-/*
-				$.ajax({
-			      type: "get",
-			      url: "title.html",
-			      success: function(data){
-			        $("#index-content").html(data);
-			        $("#index-loading").animate({opacity:0}, 300, function(){
-			          $("#index-loading").hide();
-			        });
-			      },
-			      error: function(){
-			        console.log("Error when loading title.html");
-			      }
-			    });
-*/ 
-		}
+		}, 1000);		
+		setTimeout(function(){
+			game.showNextBlock();
+			game.movingBlock();
+			game.setupHandler();
+			game.runTimer();
+		}, 3100);
 	},
 	
 	setupHandler: function() {
@@ -196,7 +173,6 @@ var game = {
 				if (game.isMatching()){
 					game.destroyBlock(smileFace);
 					game.block_destroy = true;
-// 					game.addScore();
 					game.score_animation = 50;
 					game.movingBlock();
 				}else{
@@ -209,12 +185,10 @@ var game = {
 				game.score_animation--;
 			}
 			//blocks moving	
-// 			blocks.attr('id', 'game-block');
 			var blocks_des = $("#game-block");
 			var position_des = parseInt(blocks_des.css("top"));
 			game.isPassing(blocks_des, smileFace);
 			if (position_des <= game.return_css_height($("#index-content"))){
-// 						console.log(position_des);
 				if (!game.isPassable(game.block_Touched, smileFace) && position_des == game.position_check){
 					setTimeout(function() {
 						game.movingBlock();
@@ -236,8 +210,8 @@ var game = {
 	
 	destroyBlock: function(smileFace) {
 		game.block_Touched.fadeOut(1000, function() {
-			game.block_Touched.fadeIn();
-			game.block_Touched.css("background", "white");
+			game.block_Touched.css("opacity", 0);
+			game.block_Touched.fadeIn(1000);
 		});		
 	},
 	
@@ -264,7 +238,13 @@ var game = {
 		var i = 0;
 		while (i < 5){
 			$("#game-block").append("<div id='block_"+i+"' data-color='"+game.blocks[i].color+"'>"+game.blocks[i].color+"</div>");
-			$('#block_'+i).css('background', game.blocks[i].color);
+			if (game.level == 1)
+				$('#block_'+i).css('background', game.blocks[i].color);
+			else if (game.level == 2){
+				$('#block_'+i).css('background', game.blocks[i+5].color);
+				$('#block_'+i).css('color', game.blocks[i].color);
+				$('#block_'+i).css('text-shadow', "1px 1px 1px "+game.blocks[i].color);
+			}
 			i++;
 		}
 		var randColor = game.randomColor();

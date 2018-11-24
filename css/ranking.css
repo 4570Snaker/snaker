@@ -2,12 +2,27 @@
     background:#0d0d0d; /*#262626;*/
 }
 
+<<<<<<< HEAD
 .ranking-header{
     font-family:"Arial";
     text-align:center;
     margin:20px;
     color: #ffffff;
     border-bottom: 4px solid white;
+=======
+
+
+.ranking-ranking img{
+    position:absolute;
+    top:50px;
+    right:375px;
+    margin-left:60px;
+    margin-bottom:100px;
+    width:25%;
+    height:5%;
+    margin:auto;
+    
+>>>>>>> 149e9ab6bc5f01a06b596f4b3a00498430e46530
 }
 
 .ranking-content{
@@ -22,9 +37,15 @@
     border-radius: 25px;
     text-align:center;
     padding-top: 15px;
+<<<<<<< HEAD
     width: 100%;
     height: 5%;
     margin: 50px;
+=======
+    width: 500px;
+    height: 50px;
+    margin:250px;
+>>>>>>> 149e9ab6bc5f01a06b596f4b3a00498430e46530
     border:solid;
     border-width:1px;
     border-color:#00cccc;
