@@ -2,14 +2,17 @@
     background:#0d0d0d; /*#262626;*/
 }
 
-.ranking-header{
-    
-    font-family:"Arial";
-    text-align:center;
-    margin:20px;
-    color: #ffffff;
-    border-bottom: 4px solid white;
-    
+
+
+.ranking-ranking img{
+    position:absolute;
+    top:50px;
+    right:375px;
+    margin-left:60px;
+    margin-bottom:100px;
+    width:25%;
+    height:5%;
+    margin:auto;
     
 }
 
@@ -27,7 +30,7 @@
     padding-top: 15px;
     width: 500px;
     height: 50px;
-    margin:250px  ;
+    margin:250px;
     border:solid;
     border-width:1px;
     border-color:#00cccc;
