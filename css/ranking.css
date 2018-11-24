@@ -1,27 +1,39 @@
+.ranking-page{
+    background:#0d0d0d; /*#262626;*/
+}
+
+.ranking-header{
+    
+    font-family:"Arial";
+    text-align:center;
+    margin:20px;
+    color: #ffffff;
+    border-bottom: 4px solid white;
+    
+    
+}
+
 .ranking-content{
-  position:absolute;
-  left:40%;
-  top:30%;
-  font-size:30px;
-  font-family:"Century Gothic";
-  text-align:left;
-  margin:20px;
-  color:#012d56;
-  blackground-color:#561e01;
+    font-size:20px;
+    font-family:"Arial";
+    text-align:left;
+    margin:20px;
+    color: #ffffff;
 }
 
 .ranking-button{
-  position:absoulte;
-  left:60%;
-  top:95%;
-  text-align:center;
-  margin:20px;
-  padding:20px;
-  border:solid;
-  border-width:1px;
-  border-color:#0054a6;
-  background:#0072bc;
-  color:#ffffff;
-  font-family:"Arial";
-  font-size:30px;
+    border-radius: 25px;
+    text-align:center;
+    padding-top: 25px;
+    width: 25%;
+    height: 10%;
+    margin:30px 500px 30px ;
+    border:solid;
+    border-width:1px;
+    border-color:#00cccc;
+    background:#00cccc;
+    color:#ffffff;
+    font-family:"Akronim";
+    font-size:30px;
+    box-shadow:0
 }
