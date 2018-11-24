@@ -52,8 +52,11 @@
 	padding:20px;
 	border:solid;
 	border-width:1px;
-	border-color:#0054a6;
-	background:#0072bc;
+    border-radius: 25px;
+	/*background:#0072bc;
+     border-color:#0054a6;*/
+    border-color:#00cccc;
+    background:#00cccc;
 	color:#ffffff;
 	font-family:"Arial";
 	font-size:30px;
@@ -64,7 +67,7 @@
   top:0;
   left:0;
   width:100%;
-  background:rgba(0, 0, 0, 0.7);
+  background:#0d0d0d;
 }
 
 .game-header-title{
@@ -72,12 +75,18 @@
   width:46%;
   color:white;
   font-family:Arial;
-  font-size:18px;
-  margin:2%;
-  text-align:center;
+  font-size:50px;
+  padding-left:50px;
+  padding-top:50px;
+  text-align:left;
 }
 
 .game-header-data{
   font-size:50px;
-  margin:2px 0 0 0;
+  text-align:center;
+  
+}
+
+.game-body{
+    background:#1f1f2e
 }
