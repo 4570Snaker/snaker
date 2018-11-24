@@ -2,29 +2,23 @@
     background:#0d0d0d;
 }
 
-.about-header{  
-    font-family:"Akronim";
-    text-align:center;
-    margin:20px;
-    color: #ffffff;
-    border-bottom: 4px solid white;
-<<<<<<< HEAD
-<<<<<<< HEAD
-}
 
 .about-content{
   font-size:20px;
   font-family:"Arial";
   text-align:left;
   margin:20px;
+  padding:20px;
   color: #ffffff;
-=======
+  border-radius:25px;
+  background:rgba(62, 62, 91,0.7)
+
     
 }
 
 .about-aboutus img{
     position:absolute;
-    top:50px;
+    top:20px;
     right:375px;
     margin-left:60px;
     margin-bottom:100px;
@@ -35,7 +29,7 @@
 }
 .about-gamerules img{
     position:absolute;
-    top:480px;
+    top:400px;
     right:345px;
     margin-left:60px;
     margin-bottom:100px;
@@ -47,7 +41,7 @@
 
 .about-teammember img{
     position:absolute;
-    top:1130px;
+    top:100px;
     right:300px;
     margin-left:60px;
     margin-bottom:100px;
@@ -62,13 +56,12 @@
   font-size:25px;
   font-family:"Arial";
   text-align:left;
-=======
     
 }
 
 .about-aboutus img{
     position:absolute;
-    top:50px;
+    top:13px;
     right:375px;
     margin-left:60px;
     margin-bottom:100px;
@@ -79,7 +72,7 @@
 }
 .about-gamerules img{
     position:absolute;
-    top:480px;
+    top:440px;
     right:345px;
     margin-left:60px;
     margin-bottom:100px;
@@ -91,7 +84,7 @@
 
 .about-teammember img{
     position:absolute;
-    top:1130px;
+    top:1100px;
     right:300px;
     margin-left:60px;
     margin-bottom:100px;
@@ -106,27 +99,26 @@
   font-size:25px;
   font-family:"Arial";
   text-align:left;
->>>>>>> 149e9ab6bc5f01a06b596f4b3a00498430e46530
   margin-left:20px;
   margin-top:100px;
   color:#ffffff;
   
->>>>>>> 149e9ab6bc5f01a06b596f4b3a00498430e46530
 }
 
 .about-button{
   border-radius: 25px;
   text-align:center;
   padding-top: 15px;
-  width: 100%;
+  width: 40%;
   height: 5%;
-  margin: 0 25px;
+  margin-top:100px;
+  margin-left:275px;
   border:solid;
   border-width:1px;
   border-color:#00cccc;
   background:#00cccc;
   color:#ffffff;
   font-family:"Arial";
-  font-size:30px;
-  box-shadow:0;
+  font-size:40px;
+
 }
