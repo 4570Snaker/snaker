@@ -17,10 +17,9 @@ var game = {
 	
 	level: parseInt($("#index-level").text()),
 	
-	speed: 10,
+	speed: 5,
 		
 	blocks: [
-		{"color": "black"},
 		{"color": "blue"},
 		{"color": "grey"},
 		{"color": "red"},
