@@ -96,21 +96,28 @@ var game = {
 		});
 		
 		$("#game-back").on("click", function(){
-	      $("#index-loading").show().animate({opacity:1}, 300, function(){
-	        $.ajax({
-	          type: "get",
-	          url: "title.html",
-	          success: function(data){
-	            $("#index-content").html(data);
-	            $("#index-loading").animate({opacity:0}, 300, function(){
-	              $("#index-loading").hide();
-	            });
-	          },
-	          error: function(){
-	            console.log("Error when loading about.html");
-	          }
-	        });
-	      });
+			$.ajax({
+				type: 'POST',
+				data: {"username": $("#name").val(), "score": $("#game-score").html()},
+				url: 'http://becc90ee.ngrok.io/practice/update_score.php',
+				success: function(data) {
+					$("#index-loading").show().animate({opacity:1}, 300, function(){
+						$.ajax({
+						  type: "get",
+						  url: "title.html",
+						  success: function(data){
+						    $("#index-content").html(data);
+						    $("#index-loading").animate({opacity:0}, 300, function(){
+						      $("#index-loading").hide();
+						    });
+						  },
+						  error: function(){
+						    console.log("Error when loading about.html");
+						  }
+						});
+					});
+				}
+			});
 	    });		
 	},
 	
@@ -376,7 +383,7 @@ var game = {
 		        game.runTimer();
 		    }, 1000);
 		}else{
-			var currentScore = $("#game-score").html()
+			var currentScore = $("#game-score").html();
 			$("#game-message").html("YOUR SCORE: "+currentScore+"<br><form id='game-detail'><input id='name' type='text' name='name' value='Your Name' /></form>");
 			$("#game-lose").show().animate({opacity:1}, 1000);
 		}
