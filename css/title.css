@@ -10,7 +10,7 @@
     position: relative;
     border-radius: 25px;
     text-align:center;
-    padding-top: 3vh;
+    padding-top: 1vh;
     margin: 0 auto;
     margin-bottom: 5vh;
     width: 75vw;
@@ -21,27 +21,8 @@
     background:#00cccc;
     color:#ffffff;
     font-family:"Arial";
-    font-size: 10vw;
+    font-size: 8vw;
 }
-/*
-.title-buttonb{
-    position: relative;
-    border-radius: 25px;
-    text-align:center;
-       margin: 0 auto;
-
-    padding-top: 30px;
-    width: 75%;
-    height: 5%;
-    border:solid;
-    border-width:1px;
-    border-color:#00cccc;
-    background:#00cccc;
-    color:#ffffff;
-    font-family:"Arial";
-    font-size:50px;   
-}
-*/
 
 #title-level_chooser{
 	overflow: auto;
