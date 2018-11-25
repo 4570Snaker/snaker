@@ -7,48 +7,56 @@
   font-size:18px;
   font-family:"Arial";
   text-align:left;
-  margin-top:45px;
-  margin-left:10px;
-  margin-right:10px;
   padding:20px;
   color: #ffffff;
   border-radius:25px;
   background:rgba(62, 62, 91,0.7)
     
 }
-
-
+.about-aboutus {
+	text-align: center;
+}
 .about-aboutus img{
-    position:absolute;
+/*
     top:1.5vh;
     left:33vw;
+*/
+	width: 40vw;
+	height: 5vh;
     height:5%;
     margin:auto;
 
+}
+.about-gamerules{
+	text-align: center;
 }
 .about-gamerules img{
-    position:absolute;
+/*
     top: 33vh;
     left:30vw;
-    height:5%;
+*/
+	width: 40vw;
+    height: 5vh;
     margin:auto;
     
 }
-
+.about-teammember {
+	text-align: center;
+}
 .about-teammember img{
-    position:absolute;
+/*
     top: 71vh;
     left:25vw;
-    height:4.5%;
-    margin:auto;
-    
+*/
+	width: 40vw;
+    height: 5vh;
+    margin:auto;    
 }
 
-
 .about-button{
-  position:absolute;
-  left: 18vh;
-  top: 615px;
+	margin: auto;
+/*   left: 18vh; */
+margin-top: 10px;
   border-radius: 25px;
   text-align:center;
   padding-top: 10px;

@@ -40,19 +40,18 @@ tr:nth-child(odd) {
 }
 
 .ranking-button{
-    position:absolute;
+    position:relative;
     border-radius: 25px;
     text-align:center;
     background:#00cccc;
     color:#ffffff;
     font-family:"Arial";
-    top: 600px;
-    left: 115px;
+    top: 550px;
     width: 40%;
     font-size: 20px;
     padding-bottom: 10px;
     padding-top: 10px;
-  
+    margin: auto;
 }
 #toggle_menu {
 	text-align: center;
