@@ -62,16 +62,17 @@ var title = {
 	showlevel: function() {
 		$("#title-level_chooser").on("click", function(){
 			var level = $("#title-level_chooser div").html();
+			console.log(level);
 			if (level.substr(7) < 3)
-				$("#title-level_chooser div").html("LEVEL : "+(parseInt(level.substr(7))+1));
+				$("#title-level_chooser div").html("LEVEL: "+(parseInt(level.substr(7))+1));
 			else
-				$("#title-level_chooser div").html("LEVEL : 1");
+				$("#title-level_chooser div").html("LEVEL: 1");
 				
 		});
 	},
 	
 	choose_level: function() {
-		return $("#title-level_chooser div").html().substr(6);
+		return $("#title-level_chooser div").html().substr(7);
 	}
 };
 
