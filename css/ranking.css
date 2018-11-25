@@ -5,11 +5,8 @@
 
 .ranking-ranking img{
     position:absolute;
-    top:50px;
-    right:375px;
-    margin-left:60px;
-    margin-bottom:100px;
-    width:25%;
+    top: 15px;
+    left: 120px;
     height:5%;
     margin:auto;
     
@@ -17,36 +14,43 @@
 
 table{
     position:absolute;
-    top:27%;
-    left:5%;
+    top: 75px;
+    left: 23px;
     font-size:17px;
     font-family:"Arial";
     text-align:center;
-    color:#000000;
-    background-color:#ffffff;
+    color: #ffffff;
+    
 }
-th, td, tr{
+th, td{
+  
     padding:1px;
     margin:1px;
     height:33px;
     width:105px;
 }
 
+th{
+    background-color: rgba(62, 62, 91,0.7);
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(62, 62, 91,0.5);
+    
+}
+
 .ranking-button{
     position:absolute;
     border-radius: 25px;
     text-align:center;
-    padding-top: 15px;
-    width: 70%;
-    height: 5%;
-    margin-top: 500px;
-    margin-left: 150px;
-    border:solid;
-    border-width:1px;
-    border-color:#00cccc;
     background:#00cccc;
     color:#ffffff;
     font-family:"Arial";
-    font-size:30px;
+    top: 600px;
+    left: 115px;
+    width: 40%;
+    font-size: 25px;
+    padding-bottom: 10px;
+    padding-top: 10px;
   
 }
