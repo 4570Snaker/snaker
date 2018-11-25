@@ -20,16 +20,16 @@
 
 .about-aboutus img{
     position:absolute;
-    top:10px;
-    left:125px;
+    top:1.5vh;
+    left:33vw;
     height:5%;
     margin:auto;
 
 }
 .about-gamerules img{
     position:absolute;
-    top: 215px;
-    left: 105px;
+    top: 33vh;
+    left:30vw;
     height:5%;
     margin:auto;
     
@@ -37,8 +37,8 @@
 
 .about-teammember img{
     position:absolute;
-    top: 475px;
-    left: 90px;
+    top: 71vh;
+    left:25vw;
     height:4.5%;
     margin:auto;
     
@@ -47,7 +47,7 @@
 
 .about-button{
   position:absolute;
-  left: 115px;
+  left: 18vh;
   top: 615px;
   border-radius: 25px;
   text-align:center;
