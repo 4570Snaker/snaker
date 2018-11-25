@@ -76,10 +76,9 @@
   width:46%;
   color:white;
   font-family:Arial;
-  font-size:50px;
-  padding-left:30px;
-  padding-top:50px;
-  text-align:left;
+  font-size:18px;
+  margin:2%;
+  text-align:center;
 }
 
 .game-header-data{
