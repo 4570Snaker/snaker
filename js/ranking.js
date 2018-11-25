@@ -21,11 +21,11 @@ var rankingJS = {
     
     $(".action_Menu").on("click", function() {
 		if ($(this).text() == "LEVEL1")
-			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score_1.php")
+			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score1.php")
 		else if ($(this).text() == "LEVEL2")
-			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score_2.php")
+			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score2.php")
 		else if ($(this).text() == "LEVEL3")
-			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score_3.php")
+			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score3.php")
     });
   },
   
