@@ -12,16 +12,14 @@
     text-align:center;
     padding-top: 1vh;
     margin: 0 auto;
+    margin-top: 5vh;
     margin-bottom: 5vh;
     width: 75vw;
     height: 5vh;
-    border:solid;
-    border-width:1px;
-    border-color:#00cccc;
     background:#00cccc;
     color:#ffffff;
     font-family:"Arial";
-    font-size: 8vw;
+    font-size: 6.5vw;
 }
 
 #title-level_chooser{
