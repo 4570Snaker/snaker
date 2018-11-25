@@ -11,13 +11,17 @@ var game = {
 	
 	smileColor: null,
 	
-	blockTouchedColor: null,
+	blockTouchedAns: null,
+	
+	smileNumber: null,
 	
 	score_animation: 0,
 	
 	level: parseInt($("#index-level").text()),
 	
-	speed: 5,
+	speed: 2.5,
+	
+	numberlist: [],
 		
 	blocks: [
 		{"color": "blue"},
@@ -35,28 +39,26 @@ var game = {
 	],
 	
 	init: function(){
+/*
 		$("#game-ready").hide();
 		game.initNumberFace();
+*/
 
 		//set 3 second to start game
-/*
 		setTimeout(function(){
 			game.ready();
 			game.initSmilingFace();
 		}, 1000);
-*/		
-/*
 		setTimeout(function(){
 			game.showNextBlock();
 			game.movingBlock();
 			game.setupHandler();
 			game.runTimer();
 		}, 3100);
-*/
 	},
 	
 	setupHandler: function() {
-		$("#game-smileFace").on("touchstart", function(e){
+		$("#game-smileFacemm, #game-numberFace").on("touchstart", function(e){
 			e.preventDefault();
 			$(this).css({"z-index":300});
 			$(this).attr("left", $(this).position().left);
@@ -65,7 +67,7 @@ var game = {
 			$(this).attr("pageX", touch.pageX);
 		});
 		
-	    $("#game-smileFace").on("touchmove", function(e){
+	    $("#game-smileFace, #game-numberFace").on("touchmove", function(e){
 		    e.preventDefault();
 		    
 			var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
@@ -142,7 +144,11 @@ var game = {
 	},
 	
 	isMatching: function() {
-		if (game.smileColor == game.blockTouchedColor)
+		if (game.level == 3)
+			var ans = game.smileNumber;
+		else
+			var ans = game.smileColor;
+		if (ans == game.blockTouchedAns)
 			return true;
 		else
 			return false;
@@ -163,7 +169,10 @@ var game = {
 	},
 	
 	movingBlock: function() {
-		var smileFace = $("#game-smileFace");
+		if (game.level == 3)
+			var smileFace = $("#game-numberFace");
+		else 
+			var smileFace = $("#game-smileFace");
 		var blocks = $("#game-block");
 		var position = parseInt(blocks.css("top"));
 // 		console.log(position+blocks.height(), smileFace.position().top);
@@ -176,7 +185,10 @@ var game = {
 		}else{
 			if (!game.block_destroy){
 				game.block_Touched = game.blockTouched(smileFace.position().left + game.return_css_width(smileFace)/2);
-				game.blockTouchedColor = game.block_Touched.attr("data-color");
+				if (game.level == 3)
+					game.blockTouchedAns = parseInt(game.block_Touched.html())%game.smileNumber+game.smileNumber;
+				else
+					game.blockTouchedAns = game.block_Touched.attr("data-color");
 				if (game.isMatching()){
 					game.destroyBlock(smileFace);
 					game.block_destroy = true;
@@ -241,21 +253,30 @@ var game = {
 		$("#game-gen-block").prepend("<div id='game-block'></div>");
 		$("#game-block").css("top", 0);
 		game.block_destroy = false;
-		game.shuffleColor();
+		if (game.level == 3){
+			game.randNumberFace();
+			game.randNumberAns();
+		}	
+		else
+			game.randSmilingFace(game.randomColor());
+		game.shuffle();
 		var i = 0;
 		while (i < 5){
-			$("#game-block").append("<div id='block_"+i+"' data-color='"+game.blocks[i].color+"'>"+game.blocks[i].color+"</div>");
-			if (game.level == 1)
-				$('#block_'+i).css('background', game.blocks[i].color);
-			else if (game.level == 2){
+			if (game.level == 3){
+				$("#game-block").append("<div id='block_"+i+"' data-color='"+game.numberlist[i]+"'>"+game.numberlist[i]+"</div>");
+			}else{
+				$("#game-block").append("<div id='block_"+i+"' data-color='"+game.blocks[i].color+"'>"+game.blocks[i].color+"</div>");
+			}
+			
+			if (game.level == 2){
 				$('#block_'+i).css('background', game.blocks[i+5].color);
 				$('#block_'+i).css('color', game.blocks[i].color);
 				$('#block_'+i).css('text-shadow', "1px 1px 1px "+game.blocks[i].color);
+			}else{
+				$('#block_'+i).css('background', game.blocks[i].color);
 			}
 			i++;
 		}
-		var randColor = game.randomColor();
-		game.randSmilingFace(randColor);
 		$("#game-block").show();
 	},
 	
@@ -264,29 +285,59 @@ var game = {
 		$("#game-smileFace img").attr("src", "img/smile/smile"+randColor+".png");
 	},
 	
-	initSmilingFace: function() {
-		$("#game-smileFace").append("<img>");
-		$("#game-smileFace").show();
-	},
-	
-	initNumberFace: function() {
-		var randomNumber = Math.round(Math.random()*10);
+	randNumberFace: function(){
+		var randomNumber = Math.round(Math.random()*8+2);
+		game.smileNumber = randomNumber;
 		$("#game-numberFace").html(randomNumber);
 		$("#game-numberFace").show();
+	},
+	
+	randNumberAns: function() {
+		var i = 0;
+		game.numberlist = [];
+		while (i < 5){
+			var num = Math.round(Math.random()*99+1);
+			if (i==4 && num%game.smileNumber == 0){
+				game.numberlist.push(num);
+			}else if (i==4 && num%game.smileNumber != 0)
+				i--;
+			else{
+				if (num%game.smileNumber == 0)
+				i--;
+				else{
+					game.numberlist.push(num);
+				}
+			}	
+			i++;
+		}
+	},
+	
+	initSmilingFace: function() {
+		if (game.level == 3){
+// 			$("#game-numberFace").html(0);
+// 			$("#game-numberFace").show();
+		}else{
+			$("#game-smileFace").append("<img>");
+			$("#game-smileFace").show();
+		}	
 	},
 	
 	randomColor: function() {
 		return game.blocks[Math.round(Math.random()*4)].color;
 	},
 	
-	shuffleColor: function() {
-		var currentIndex = game.blocks.length, temporaryValue, randomIndex;
-		while (0 !== currentIndex) {
+	shuffle: function() {
+		if (game.level == 3)
+			var list = game.numberlist;
+		else
+			var list = game.blocks;
+		var currentIndex = list.length, temporaryValue, randomIndex;
+		while (currentIndex != 0) {
 			randomIndex = Math.floor(Math.random() * currentIndex);
 			currentIndex -= 1;			
-			temporaryValue = game.blocks[currentIndex];
-			game.blocks[currentIndex] = game.blocks[randomIndex];
-			game.blocks[randomIndex] = temporaryValue;
+			temporaryValue = list[currentIndex];
+			list[currentIndex] = list[randomIndex];
+			list[randomIndex] = temporaryValue;
 		}
 	},
 	
