@@ -6,8 +6,15 @@
 	echo "Failed to connect to MySQL: ".$con->connect_error;
 	}
 $score = $_POST["score"];
-$status = $con->query("INSERT INTO player_score (score) VALUES ($score)");
-if(!$status){
+$username = $_POST["username"];
+$level=$_POST["level"];
+if ($level==1){
+	$status = $con->query("INSERT INTO level1 (score) VALUES ($score)");
+} elseif ($level==2){
+        $status = $con->query("INSERT INTO level2 (score) VALUES ($score)");
+} elseif ($level==3){
+        $status = $con->query("INSERT INTO level3 (score) VALUES ($score)");
+}if(!$status){
 echo ("Error in inserting the score");
 }
 $con->close();
