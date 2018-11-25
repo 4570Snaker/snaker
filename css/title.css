@@ -6,43 +6,42 @@
     background:#0d0d0d; /*#262626;*/
 }
 
-.title-buttona{
-    position:absolute;
+.title-button{
+    position: relative;
     border-radius: 25px;
     text-align:center;
-    padding-top: 30px;
-    width: 75%;
-    height: 5%;
-    margin-top: 600px;
-    margin-left: 125px;
+    padding-top: 3vh;
+    margin: 0 auto;
+    margin-bottom: 5vh;
+    width: 75vw;
+    height: 5vh;
     border:solid;
     border-width:1px;
     border-color:#00cccc;
     background:#00cccc;
     color:#ffffff;
     font-family:"Arial";
-    font-size:50px;
-    
+    font-size: 10vw;
 }
+/*
 .title-buttonb{
-    position:absolute;
+    position: relative;
     border-radius: 25px;
     text-align:center;
+       margin: 0 auto;
+
     padding-top: 30px;
     width: 75%;
     height: 5%;
-    margin-top: 50px;
-    margin-left: 125px;
     border:solid;
     border-width:1px;
     border-color:#00cccc;
     background:#00cccc;
     color:#ffffff;
     font-family:"Arial";
-    font-size:50px;
-    
+    font-size:50px;   
 }
-
+*/
 
 #title-level_chooser{
 	overflow: auto;
@@ -65,24 +64,21 @@
 #title-level_chooser li{
 	padding-bottom: 20px;
 }
-
-
-.title-icon img{
-    position:absolute;
-    top:30px;
-    right: 375px;
-    width:30%;
-    height:18%;
-    margin-bottom:10px;
-    
+.title-icon {
+	text-align: center;
 }
-
+.title-icon img{
+    position: relative;
+    top:30px;
+    width:30vw;
+    margin-bottom: 5vh; 
+}
+.title-name {
+	text-align: center;
+}
 .title-name img{
-    position:absolute;
-    top:400px;
-    right: 210px;
-    width:60%;
-    height:9%;
-    margin-bottom:10px;
-    
+    position: relative;
+    width: 60vw;
+    height: 10vw;
+    margin-bottom: 5vh;
 }
