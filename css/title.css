@@ -6,14 +6,15 @@
     background:#0d0d0d; /*#262626;*/
 }
 
-.title-button{
+.title-buttona{
 
     border-radius: 25px;
     text-align:center;
     padding-top: 30px;
     width: 75%;
     height: 5%;
-    margin: 70px;
+    margin-top: 600px;
+    margin-left: 125px;
     border:solid;
     border-width:1px;
     border-color:#00cccc;
@@ -23,6 +24,25 @@
     font-size:50px;
     
 }
+.title-buttonb{
+    
+    border-radius: 25px;
+    text-align:center;
+    padding-top: 30px;
+    width: 75%;
+    height: 5%;
+    margin-top: 50px;
+    margin-left: 125px;
+    border:solid;
+    border-width:1px;
+    border-color:#00cccc;
+    background:#00cccc;
+    color:#ffffff;
+    font-family:"Arial";
+    font-size:50px;
+    
+}
+
 
 
 
@@ -55,6 +75,16 @@
     right: 375px;
     width:30%;
     height:18%;
+    margin-bottom:10px;
+    
+}
+
+.title-name img{
+    position:absolute;
+    top:400px;
+    right: 210px;
+    width:60%;
+    height:9%;
     margin-bottom:10px;
     
 }
