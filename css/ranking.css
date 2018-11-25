@@ -14,7 +14,7 @@
 
 table{
     position:absolute;
-    top: 75px;
+    top: 100px;
     left: 23px;
     font-size:17px;
     font-family:"Arial";
@@ -53,4 +53,19 @@ tr:nth-child(odd) {
     padding-bottom: 10px;
     padding-top: 10px;
   
+}
+#toggle_menu {
+	text-align: center;
+}
+.action_Menu {
+	position: relative;
+	color: white;
+	width: 33vw;
+	margin: 0;
+	padding-left: 6vw;
+	padding-right: 6vw;
+	display: inline;
+	top: 10vh;
+	text-align: center;
+	border: 2.5px dashed #7cc3da;
 }
