@@ -22,6 +22,22 @@
     margin:20px;
     color: #ffffff;
 }
+table{
+    position:absolute;
+    top:27%;
+    left:5%;
+    font-size:17px;
+    font-family:"Arial";
+    text-align:center;
+    color:#000000;
+    background-color:#ffffff;
+}
+th, td, tr{
+    padding:1px;
+    margin:1px;
+    height:33px;
+    width:105px;
+}
 
 .ranking-button{
     position:absolute;
