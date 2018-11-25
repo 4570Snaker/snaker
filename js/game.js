@@ -99,7 +99,7 @@ var game = {
 			$.ajax({
 				type: 'POST',
 				data: {"username": $("#name").val(), "score": $("#game-score").html()},
-				url: 'update_score.php',
+				url: 'http://becc90ee.ngrok.io/practice/update_score.php',
 				success: function(data) {
 					$("#index-loading").show().animate({opacity:1}, 300, function(){
 						$.ajax({
