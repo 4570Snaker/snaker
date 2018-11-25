@@ -19,7 +19,7 @@ var game = {
 	
 	level: parseInt($("#index-level").text()),
 	
-	speed: 2.5,
+	speed: 6,
 	
 	numberlist: [],
 		
@@ -39,12 +39,13 @@ var game = {
 	],
 	
 	init: function(){
-/*
-		$("#game-ready").hide();
-		game.initNumberFace();
-*/
-
 		//set 3 second to start game
+		if (game.level == 3)
+			game.speed = 5;
+		else if (game.level == 2)
+			game.speed = 6;
+		else
+			game.speed = 7;
 		setTimeout(function(){
 			game.ready();
 			game.initSmilingFace();
@@ -58,7 +59,7 @@ var game = {
 	},
 	
 	setupHandler: function() {
-		$("#game-smileFacemm, #game-numberFace").on("touchstart", function(e){
+		$("#game-smileFace, #game-numberFace").on("touchstart", function(e){
 			e.preventDefault();
 			$(this).css({"z-index":300});
 			$(this).attr("left", $(this).position().left);
@@ -257,8 +258,6 @@ var game = {
 			game.randNumberFace();
 			game.randNumberAns();
 		}	
-		else
-			game.randSmilingFace(game.randomColor());
 		game.shuffle();
 		var i = 0;
 		while (i < 5){
@@ -277,6 +276,8 @@ var game = {
 			}
 			i++;
 		}
+		if (game.level!=3)
+			game.randSmilingFace(game.randomColor());
 		$("#game-block").show();
 	},
 	
@@ -313,10 +314,7 @@ var game = {
 	},
 	
 	initSmilingFace: function() {
-		if (game.level == 3){
-// 			$("#game-numberFace").html(0);
-// 			$("#game-numberFace").show();
-		}else{
+		if (game.level != 3) {
 			$("#game-smileFace").append("<img>");
 			$("#game-smileFace").show();
 		}	
@@ -371,7 +369,7 @@ var game = {
 		    }, 1000);
 		}else{
 			var currentScore = $("#game-score").html()
-			$("#game-message").html("YOUR SCORE:"+currentScore);
+			$("#game-message").html("YOUR SCORE: "+currentScore+"<br><form id='game-detail'><input id='name' type='text' name='name' value='Your Name' /></form>");
 			$("#game-lose").show().animate({opacity:1}, 1000);
 		}
 	},
