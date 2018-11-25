@@ -100,7 +100,7 @@ var game = {
 			$.ajax({
 				type: 'POST',
 				data: {"level": game.level, "username": $("#name").val(), "score": $("#game-score").html()},
-				url: 'http://becc90ee.ngrok.io/practice/update_score.php',
+				url: 'https://secure.s55.ierg4210.ie.cuhk.edu.hk/seem4570/update_score.php',
 				success: function(data) {
 					$("#index-loading").show().animate({opacity:1}, 300, function(){
 						$.ajax({

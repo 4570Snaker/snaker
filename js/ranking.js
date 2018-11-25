@@ -27,11 +27,11 @@ var rankingJS = {
 			i++;
 		}
 	    if ($(this).text() == "LEVEL1")
-			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score.php")
+			rankingJS.get_data("https://secure.s55.ierg4210.ie.cuhk.edu.hk/seem4570/get_score.php")
 		else if ($(this).text() == "LEVEL2")
-			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score2.php")
+			rankingJS.get_data("https://secure.s55.ierg4210.ie.cuhk.edu.hk/seem4570/get_score2.php")
 		else if ($(this).text() == "LEVEL3")
-			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score3.php")
+			rankingJS.get_data("https://secure.s55.ierg4210.ie.cuhk.edu.hk/seem4570/get_score3.php")
     });
   },
   
