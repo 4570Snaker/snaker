@@ -10,7 +10,7 @@
     border-radius: 25px;
     text-align:center;
     padding-top: 25px;
-    width: 100%;
+    width: 75%;
     height: 5%;
     margin: 50px;
     border:solid;
@@ -22,6 +22,8 @@
     font-size:30px;
     
 }
+
+
 #title-level_chooser{
 	overflow: auto;
 }
@@ -44,3 +46,13 @@
 	padding-bottom: 20px;
 }
 
+
+.title-icon img{
+    position:absolute;
+    top:30px;
+    right: 375px;
+    width:30%;
+    height:18%;
+    margin-bottom:50px;
+    
+}
