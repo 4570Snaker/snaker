@@ -26,8 +26,9 @@ var rankingJS = {
 			$("#score-"+i).empty();
 			i++;
 		}
-	    if ($(this).text() == "LEVEL1")
+	    if ($(this).text() == "LEVEL1"){
 			rankingJS.get_data("https://secure.s55.ierg4210.ie.cuhk.edu.hk/seem4570/get_score.php");
+	    }
 		else if ($(this).text() == "LEVEL2")
 			rankingJS.get_data("https://secure.s55.ierg4210.ie.cuhk.edu.hk/seem4570/get_score2.php");
 		else if ($(this).text() == "LEVEL3")

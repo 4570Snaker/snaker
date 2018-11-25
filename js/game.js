@@ -21,7 +21,7 @@ var game = {
 	
 	speed: 6,
 	
-	Infinity: false,
+	challenge: false,
 	
 	numberlist: [],
 		
@@ -43,12 +43,14 @@ var game = {
 	init: function(){
 		//set 3 second to start game
 		if (game.level == 3)
-			game.speed = 5;
+			game.speed = 4;
 		else if (game.level == 2)
-			game.speed = 6;
+			game.speed = 5;
 		else if (game.level == 1)
-			game.speed = 7;
+			game.speed = 6;
 			
+		if ($("#index-challenge").text() == "red")
+			game.challenge = true;
 			
 		setTimeout(function(){
 			game.ready();
@@ -378,6 +380,8 @@ var game = {
 	runTimer: function() {
 		if (game.state){
 			var currentTime = $("#game-time").html();
+			if (game.challenge && currentTime % 20 == 0)
+				game.speed += 1;
 			currentTime++;
 			$("#game-time").html(currentTime);
 			setTimeout(function(){
