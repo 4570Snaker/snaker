@@ -74,7 +74,7 @@ var game = {
 			var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
 			var offSetPageX = touch.pageX - parseFloat($(this).attr("pageX"));
 			var left = parseFloat($(this).attr("left")) + offSetPageX;
-			var width = game.return_css_width($(this));
+			var width = $(this).width();
 			
 			if (game.passingState){
 				var b_left = game.block_Touched.position().left;
@@ -82,7 +82,7 @@ var game = {
 				if (left >= game.block_Touched.position().left && left+width <= b_left+b_width)
 					$(this).css({"left":left+"px"});
 			}else{
-				if (left >= 0 && left+width <= game.return_css_width($("#index-content")))
+				if (left >= 0 && left+width <= $("#index-content").width())
 					$(this).css({"left":left+"px"});
 			}	
 		});
@@ -123,9 +123,9 @@ var game = {
 	
 	isPassable: function(block_touch, smileFace) {
 		var left = block_touch.position().left;
-		var width = game.return_css_width(block_touch);
+		var width = block_touch.width();
 		
-		if (smileFace.position().left >= left && smileFace.position().left+game.return_css_width(smileFace) <= left+width)
+		if (smileFace.position().left >= left && smileFace.position().left+smileFace.width() <= left+width)
 			return true;
 		else
 			return false;
@@ -156,7 +156,7 @@ var game = {
 	},
 	
 	blockTouched: function(pos) {
-		screen_width = game.return_css_width($("#index-content"));
+		screen_width = $("#index-content").width();
 	    if (pos <= screen_width/5)
 	    	return $("#block_0");
 	    else if (pos > screen_width/5 && pos <= screen_width/5*2)
@@ -185,7 +185,7 @@ var game = {
 			game.position_check = position;
 		}else{
 			if (!game.block_destroy){
-				game.block_Touched = game.blockTouched(smileFace.position().left + game.return_css_width(smileFace)/2);
+				game.block_Touched = game.blockTouched(smileFace.position().left + (smileFace.width())/2);
 				if (game.level == 3)
 					game.blockTouchedAns = parseInt(game.block_Touched.html())%game.smileNumber+game.smileNumber;
 				else
@@ -208,7 +208,7 @@ var game = {
 			var blocks_des = $("#game-block");
 			var position_des = parseInt(blocks_des.css("top"));
 			game.isPassing(blocks_des, smileFace);
-			if (position_des <= game.return_css_height($("#index-content"))){
+			if (position_des <= $("#index-content").height()){
 				if (!game.isPassable(game.block_Touched, smileFace) && position_des == game.position_check){
 					setTimeout(function() {
 						game.movingBlock();
@@ -372,14 +372,6 @@ var game = {
 			$("#game-message").html("YOUR SCORE: "+currentScore+"<br><form id='game-detail'><input id='name' type='text' name='name' value='Your Name' /></form>");
 			$("#game-lose").show().animate({opacity:1}, 1000);
 		}
-	},
-	
-	return_css_width: function(obj){
-		return obj.width();
-	},
-	
-	return_css_height: function(obj){
-		return obj.height();
 	},
 }
 
