@@ -7,7 +7,7 @@
 }
 
 .title-buttona{
-
+    position:absolute;
     border-radius: 25px;
     text-align:center;
     padding-top: 30px;
@@ -25,7 +25,7 @@
     
 }
 .title-buttonb{
-    
+    position:absolute;
     border-radius: 25px;
     text-align:center;
     padding-top: 30px;
