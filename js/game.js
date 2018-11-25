@@ -35,17 +35,24 @@ var game = {
 	],
 	
 	init: function(){
+		$("#game-ready").hide();
+		game.initNumberFace();
+
 		//set 3 second to start game
+/*
 		setTimeout(function(){
 			game.ready();
 			game.initSmilingFace();
-		}, 1000);		
+		}, 1000);
+*/		
+/*
 		setTimeout(function(){
 			game.showNextBlock();
 			game.movingBlock();
 			game.setupHandler();
 			game.runTimer();
 		}, 3100);
+*/
 	},
 	
 	setupHandler: function() {
@@ -260,6 +267,12 @@ var game = {
 	initSmilingFace: function() {
 		$("#game-smileFace").append("<img>");
 		$("#game-smileFace").show();
+	},
+	
+	initNumberFace: function() {
+		var randomNumber = Math.round(Math.random()*10);
+		$("#game-numberFace").html(randomNumber);
+		$("#game-numberFace").show();
 	},
 	
 	randomColor: function() {

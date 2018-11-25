@@ -41,11 +41,28 @@
 	display: none;
 	z-index: 200;
 	bottom: 30%;
-	left: 42.5vw;
+	left: 41.25vw;
 	position: fixed;
 }
 #game-smileFace img{
 	width: 15vw;
+}
+#game-numberFace{
+	background-color: white;
+	border-radius: 50%;
+	display: none;
+	bottom: 30%;
+    z-index: 100;
+    position: fixed;
+    height: 17.5vw;
+    width: 17.5vw;
+    text-align: center;
+    line-height: 17.5vw;
+    color: white;
+    font-size: 200%;
+    text-shadow: 1px 1px 1px black;
+    border: 1px double black;
+    left: 41.25vw;
 }
 #game-back{
 	text-align:center;
