@@ -1,16 +1,14 @@
 var rankingJS = {
   init: function() {
+      var data1;
       $.ajax({
              type: 'GET',
              dataType: 'json',
              url: "http://localhost:8080/practice/get_score.php",
              success: function(data){
-            
              console.log(data);
-             for(var i=0; i<data.length; i++){
-             output+=data[i]['username'] + ": " + data[i]['mark'];
-             }
-             $("#ranking-content").html(output);
+             $("#name-1").html(data[0]['username']);
+             $("#score-1").html(data[0]['score']);
              }});
       
     $("#ranking-back").on("click", function(){
