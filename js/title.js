@@ -1,11 +1,4 @@
 var title = {
-	level: [
-		{"id": "1"},
-		{"id": "2"},
-		{"id": "3"},
-		{"id": "Infinity"}
-	],
-	
 	init: function() {
 		title.showlevel();
 		$("#title-start_button").on("click", function(){
@@ -69,11 +62,11 @@ var title = {
 	showlevel: function() {
 		$("#title-level_chooser").on("click", function(){
 			var level = $("#title-level_chooser div").html();
-			if (level.substr(6)<title.level.length){
-				$("#title-level_chooser div").html("LEVEL "+(parseInt(level.substr(6))+1));
-			}else{
-				$("#title-level_chooser div").html("LEVEL 1");
-			}
+			if (level.substr(7) < 3)
+				$("#title-level_chooser div").html("LEVEL : "+(parseInt(level.substr(7))+1));
+			else
+				$("#title-level_chooser div").html("LEVEL : 1");
+				
 		});
 	},
 	

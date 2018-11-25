@@ -21,6 +21,8 @@ var game = {
 	
 	speed: 6,
 	
+	Infinity: false,
+	
 	numberlist: [],
 		
 	blocks: [
@@ -44,8 +46,10 @@ var game = {
 			game.speed = 5;
 		else if (game.level == 2)
 			game.speed = 6;
-		else
+		else if (game.level == 1)
 			game.speed = 7;
+			
+			
 		setTimeout(function(){
 			game.ready();
 			game.initSmilingFace();
@@ -200,30 +204,34 @@ var game = {
 					game.runTimer();
 				}
 			}else{	
-			if (game.score_animation != 0){
-				game.addScore();
-				game.score_animation--;
-			}
-			//blocks moving	
-			var blocks_des = $("#game-block");
-			var position_des = parseInt(blocks_des.css("top"));
-			game.isPassing(blocks_des, smileFace);
-			if (position_des <= $("#index-content").height()){
-				if (!game.isPassable(game.block_Touched, smileFace) && position_des == game.position_check){
-					setTimeout(function() {
-						game.movingBlock();
-					}, 20);
-				}else{
-					blocks.css("top", position_des+=game.speed);
-					setTimeout(function() {
-						game.movingBlock();
-					}, 20);
+				if (game.score_animation != 0){
+					game.addScore();
+					game.score_animation--;
 				}
-			}else{
-				$("#game-block").remove();
-				game.showNextBlock();
-				game.movingBlock();
-			}			
+				//blocks moving	
+				var blocks_des = $("#game-block");
+				var position_des = parseInt(blocks_des.css("top"));
+				game.isPassing(blocks_des, smileFace);
+				if (position_des <= $("#index-content").height()){
+					if (!game.isPassable(game.block_Touched, smileFace) && position_des == game.position_check){
+						setTimeout(function() {
+							game.movingBlock();
+						}, 20);
+					}else{
+						blocks.css("top", position_des+=game.speed);
+						setTimeout(function() {
+							game.movingBlock();
+						}, 20);
+					}
+				}else{
+					$("#game-block").remove();
+					if (game.Infinity){
+						game.level = Math.round(Math.random()*2+1);
+						game.initSmilingFace();
+					}
+					game.showNextBlock();
+					game.movingBlock();
+				}			
 			}	
 		}
 	},
@@ -317,7 +325,7 @@ var game = {
 		if (game.level != 3) {
 			$("#game-smileFace").append("<img>");
 			$("#game-smileFace").show();
-		}	
+		}
 	},
 	
 	randomColor: function() {
