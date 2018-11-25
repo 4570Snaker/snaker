@@ -31,11 +31,11 @@ th, td{
 }
 
 th{
-    background-color: rgba(62, 62, 91,0.7);
+    background-color: rgba(62, 62, 91,0.9);
 }
 
 tr:nth-child(odd) {
-    background-color: rgba(62, 62, 91,0.5);
+    background-color: rgba(62, 62, 91,0.7);
     
 }
 
@@ -49,7 +49,7 @@ tr:nth-child(odd) {
     top: 600px;
     left: 115px;
     width: 40%;
-    font-size: 25px;
+    font-size: 20px;
     padding-bottom: 10px;
     padding-top: 10px;
   
