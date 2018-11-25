@@ -4,10 +4,12 @@
 
 
 .about-content{
-  font-size:20px;
+  font-size:18px;
   font-family:"Arial";
   text-align:left;
-  margin:20px;
+  margin-top:45px;
+  margin-left:10px;
+  margin-right:10px;
   padding:20px;
   color: #ffffff;
   border-radius:25px;
@@ -19,21 +21,15 @@
 .about-aboutus img{
     position:absolute;
     top:13px;
-    right:375px;
-    margin-left:60px;
-    margin-bottom:100px;
-    width:25%;
+    left:125px;
     height:5%;
     margin:auto;
 
 }
 .about-gamerules img{
     position:absolute;
-    top:440px;
-    right:345px;
-    margin-left:60px;
-    margin-bottom:100px;
-    width:30%;
+    top: 200px;
+    left: 105px;
     height:5%;
     margin:auto;
     
@@ -41,32 +37,26 @@
 
 .about-teammember img{
     position:absolute;
-    top:1100px;
-    right:300px;
-    margin-left:60px;
-    margin-bottom:100px;
-    width:40%;
+    top: 475px;
+    left: 90px;
     height:4.5%;
     margin:auto;
     
 }
 
 
-
 .about-button{
+  position:absolute;
+  left: 115px;
+  top: 600px;
   border-radius: 25px;
   text-align:center;
-  padding-top: 15px;
+  padding-top: 10px;
+  padding-bottom:10px;
   width: 40%;
-  height: 5%;
-  margin-top:100px;
-  margin-left:275px;
-  border:solid;
-  border-width:1px;
-  border-color:#00cccc;
   background:#00cccc;
   color:#ffffff;
   font-family:"Arial";
-  font-size:40px;
+  font-size:20px;
 
 }
