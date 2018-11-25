@@ -1,6 +1,9 @@
 var title = {
+	color: null,
+	
 	init: function() {
 		title.showlevel();
+		title.isChallenged();
 		$("#title-start_button").on("click", function(){
 			$("#index-loading").show().animate({opacity:1}, 300, function(){
 				var level = title.choose_level();
@@ -9,6 +12,7 @@ var title = {
 					url: "game.html",
 					success: function(data){
 							$("#index-level").html(level);
+							$("#index-challenge").html(title.color);
 					    	$("#index-content").html(data);
 							$("#index-loading").animate({opacity:0}, 300, function(){
 							$("#index-loading").hide();
@@ -73,6 +77,19 @@ var title = {
 	
 	choose_level: function() {
 		return $("#title-level_chooser div").html().substr(7);
+	},
+	
+	isChallenged: function() {
+		$("#title-challenge_button").on("click", function(){
+			console.log(title.color);
+			if (title.color == "#00cccc" || title.color == null){
+				$("#title-challenge_button").css("background-color", "red");
+				title.color = "red";
+			}else if (title.color == "red"){
+				$("#title-challenge_button").css("background-color", "#00cccc");
+				title.color = "#00cccc";
+			}
+		});
 	}
 };
 

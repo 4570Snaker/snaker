@@ -20,7 +20,8 @@ var rankingJS = {
     });
     
     $(".action_Menu").on("click", function() {
-		if ($(this).text() == "LEVEL1")
+	    $("#rank-table").emptyCells();
+	    if ($(this).text() == "LEVEL1")
 			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score1.php")
 		else if ($(this).text() == "LEVEL2")
 			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score2.php")
