@@ -113,12 +113,15 @@ var game = {
 						    $("#index-loading").animate({opacity:0}, 300, function(){
 						      $("#index-loading").hide();
 						    });
-						  },
-						  error: function(){
-						    console.log("Error when loading about.html");
 						  }
 						});
 					});
+				},
+				error: function(data){
+					$("#index-content").html(data);
+				    $("#index-loading").animate({opacity:0}, 300, function(){
+				    $("#index-loading").hide();
+				    });
 				}
 			});
 	    });		
