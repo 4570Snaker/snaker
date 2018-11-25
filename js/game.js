@@ -96,6 +96,7 @@ var game = {
 		});
 		
 		$("#game-back").on("click", function(){
+			console.log(typeof($("#game-score").html()));
 			$.ajax({
 				type: 'POST',
 				data: {"level": game.level, "username": $("#name").val(), "score": $("#game-score").html()},
@@ -384,7 +385,7 @@ var game = {
 		    }, 1000);
 		}else{
 			var currentScore = $("#game-score").html();
-			$("#game-message").html("YOUR SCORE: "+currentScore+"<br><form id='game-detail'><input id='name' type='text' name='name' value='Your Name' /></form>");
+			$("#game-message").html("YOUR SCORE: "+currentScore+"<br><input id='name' type='text' name='name' value='Your Name' />");
 			$("#game-lose").show().animate({opacity:1}, 1000);
 		}
 	},

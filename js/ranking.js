@@ -20,26 +20,12 @@ var rankingJS = {
     });
     
     $(".action_Menu").on("click", function() {
-	    $("#name-1").empty();
-		$("#score-1").empty();
-		$("#name-2").empty();
-		$("#score-2").empty();
-		$("#name-3").empty();
-		$("#score-3").empty();
-		$("#name-4").empty();
-		$("#score-4").empty();
-		$("#name-5").empty();
-		$("#score-5").empty();
-		$("#name-6").empty();
-		$("#score-6").empty();
-		$("#name-7").empty();
-		$("#score-7").empty();
-		$("#name-8").empty();
-		$("#score-8").empty();
-		$("#name-9").empty();
-		$("#score-9").empty();
-		$("#name-10").empty();
-		$("#score-10").empty();
+	    var i = 1;
+	    while(i <= 10){
+			$("#name-"+i).empty();
+			$("#score-"+i).empty();
+			i++;
+		}
 	    if ($(this).text() == "LEVEL1")
 			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score.php")
 		else if ($(this).text() == "LEVEL2")
@@ -55,28 +41,15 @@ var rankingJS = {
 		dataType: 'json',
 		url: url,
 		success: function(data){
-		console.log(data);
-		$("#name-1").html(data[0]['username']);
-		$("#score-1").html(data[0]['score']);
-		$("#name-2").html(data[1]['username']);
-		$("#score-2").html(data[1]['score']);
-		$("#name-3").html(data[2]['username']);
-		$("#score-3").html(data[2]['score']);
-		$("#name-4").html(data[3]['username']);
-		$("#score-4").html(data[3]['score']);
-		$("#name-5").html(data[4]['username']);
-		$("#score-5").html(data[4]['score']);
-		$("#name-6").html(data[5]['username']);
-		$("#score-6").html(data[5]['score']);
-		$("#name-7").html(data[6]['username']);
-		$("#score-7").html(data[6]['score']);
-		$("#name-8").html(data[7]['username']);
-		$("#score-8").html(data[7]['score']);
-		$("#name-9").html(data[8]['username']);
-		$("#score-9").html(data[8]['score']);
-		$("#name-10").html(data[9]['username']);
-		$("#score-10").html(data[9]['score']);
-    }});
+			var i = 1;
+	
+			while(i <= 10){
+				$("#name-"+i).html(data[i-1]['username']);
+				$("#score-"+i).html(data[i-1]['score']);
+				i++;
+			}
+	 	}
+	});
   }
 };
 
