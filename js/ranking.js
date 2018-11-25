@@ -20,9 +20,28 @@ var rankingJS = {
     });
     
     $(".action_Menu").on("click", function() {
-	    $("#rank-table").emptyCells();
+	    $("#name-1").empty();
+		$("#score-1").empty();
+		$("#name-2").empty();
+		$("#score-2").empty();
+		$("#name-3").empty();
+		$("#score-3").empty();
+		$("#name-4").empty();
+		$("#score-4").empty();
+		$("#name-5").empty();
+		$("#score-5").empty();
+		$("#name-6").empty();
+		$("#score-6").empty();
+		$("#name-7").empty();
+		$("#score-7").empty();
+		$("#name-8").empty();
+		$("#score-8").empty();
+		$("#name-9").empty();
+		$("#score-9").empty();
+		$("#name-10").empty();
+		$("#score-10").empty();
 	    if ($(this).text() == "LEVEL1")
-			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score1.php")
+			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score.php")
 		else if ($(this).text() == "LEVEL2")
 			rankingJS.get_data("https://becc90ee.ngrok.io/practice/get_score2.php")
 		else if ($(this).text() == "LEVEL3")
