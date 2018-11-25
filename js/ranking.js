@@ -4,7 +4,7 @@ var rankingJS = {
       $.ajax({
              type: 'GET',
              dataType: 'json',
-             url: "http://localhost:8080/practice/get_score.php",
+             url: "http://192.168.64.2/practice/get_score.php",
              success: function(data){
              console.log(data);
              $("#name-1").html(data[0]['username']);
