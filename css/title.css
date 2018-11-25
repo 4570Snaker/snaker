@@ -7,21 +7,23 @@
 }
 
 .title-button{
+
     border-radius: 25px;
     text-align:center;
-    padding-top: 25px;
+    padding-top: 30px;
     width: 75%;
     height: 5%;
-    margin: 50px;
+    margin: 70px;
     border:solid;
     border-width:1px;
     border-color:#00cccc;
     background:#00cccc;
     color:#ffffff;
     font-family:"Arial";
-    font-size:30px;
+    font-size:50px;
     
 }
+
 
 
 #title-level_chooser{
@@ -53,6 +55,6 @@
     right: 375px;
     width:30%;
     height:18%;
-    margin-bottom:50px;
+    margin-bottom:10px;
     
 }
